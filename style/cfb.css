@@ -1,0 +1,88 @@
+/* Styles globaux pour le corps et la section */
+body, html {
+    margin: 0;
+    /* Supprime les marges par défaut */
+    padding: 0;
+    /* Supprime le padding par défaut */
+    height: 100%;
+    /* Assure que le corps et le HTML prennent toute la hauteur */
+}
+
+.Home {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* La hauteur prend toute la fenêtre du navigateur */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    /* Assure que la navigation est positionnée correctement */
+    z-index: 10;
+    /* Place le header au-dessus des autres éléments */
+}
+
+header>img {
+    height: 90px;
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav>ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav>ul>li {
+    margin-left: 20px;
+    /* Ajuste l'espace entre les éléments de la liste */
+}
+
+nav>ul>li>a {
+    font-family: roboto;
+    color: black;
+    text-decoration: none;
+}
+
+nav>ul>li>a:hover {
+    color: red;
+    border-bottom: 5px solid red;
+}
+
+/* Styles pour la section d'image */
+.logo-image {
+    width: 100%;
+    /* Prend toute la largeur de l'écran */
+    height: 60vh;
+    /* Hauteur relative à la hauteur de la fenêtre (ajustez selon vos besoins) */
+    display: flex;
+    /* Utilisation de Flexbox pour centrer l'image */
+    align-items: center;
+    /* Centre verticalement l'image */
+    justify-content: center;
+    /* Centre horizontalement l'image */
+    overflow: hidden;
+    /* Assure que rien ne dépasse de la section */
+    position: relative;
+    /* Positionnement relatif pour éviter les problèmes de superposition */
+    margin-top: 10px;
+    /* Ajoute un espace au-dessus de la section pour éviter les chevauchements */
+}
+
+.logo-image>img {
+    width: 100%;
+    /* L'image prend toute la largeur de la section */
+    height: auto;
+    /* Conserve les proportions de l'image */
+    max-height: 100%;
+    /* Assure que l'image ne dépasse pas la hauteur de la section */
+    object-fit: cover;
+    /* Couvre la section tout en conservant les proportions */
+}
