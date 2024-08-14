@@ -1,34 +1,44 @@
 /* Styles globaux pour le corps et la section */
 body, html {
     margin: 0;
-    /* Supprime les marges par défaut */
     padding: 0;
-    /* Supprime le padding par défaut */
     height: 100%;
+    background-color: rgb(204, 248, 233);
     /* Assure que le corps et le HTML prennent toute la hauteur */
 }
 
+/* Conteneur principal */
 .Home {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    /* La hauteur prend toute la fenêtre du navigateur */
 }
 
+/* Fixer le header en haut de la page */
 header {
     display: flex;
     align-items: center;
     padding: 10px;
-    position: relative;
-    /* Assure que la navigation est positionnée correctement */
+    position: fixed;
+    /* Fixe le header en haut de la page */
+    top: 0;
+    width: 100%;
+    /* Assure que le header prend toute la largeur */
+    background-color: #FFF200;
+    /* Assure la visibilité du header */
     z-index: 10;
-    /* Place le header au-dessus des autres éléments */
+    /* Assure que le header reste au-dessus des autres éléments */
+    box-sizing: border-box;
+    /* Inclut le padding dans la hauteur totale */
+    height: 100px;
+    /* Hauteur du header */
 }
 
+/* Ajuster la hauteur de l'image dans le header */
 header>img {
     height: 90px;
 }
 
+/* Styles de navigation */
 nav {
     margin-left: auto;
 }
@@ -42,47 +52,417 @@ nav>ul {
 
 nav>ul>li {
     margin-left: 20px;
-    /* Ajuste l'espace entre les éléments de la liste */
 }
 
 nav>ul>li>a {
     font-family: roboto;
-    color: black;
+    color: white;
     text-decoration: none;
+    background-color: black;
+    padding: 10px;
+    border-radius: 5%;
 }
 
 nav>ul>li>a:hover {
-    color: red;
-    border-bottom: 5px solid red;
+    color: wheat;
+    border-bottom: 5px solid rgb(96, 76, 76);
+    background-color: black;
 }
 
-/* Styles pour la section d'image */
+/* Styles pour la section logo-image */
 .logo-image {
     width: 100%;
-    /* Prend toute la largeur de l'écran */
-    height: 60vh;
-    /* Hauteur relative à la hauteur de la fenêtre (ajustez selon vos besoins) */
+    height: 90vh;
+    /* Ajustez cette valeur selon vos besoins */
     display: flex;
-    /* Utilisation de Flexbox pour centrer l'image */
     align-items: center;
-    /* Centre verticalement l'image */
     justify-content: center;
-    /* Centre horizontalement l'image */
     overflow: hidden;
-    /* Assure que rien ne dépasse de la section */
-    position: relative;
-    /* Positionnement relatif pour éviter les problèmes de superposition */
-    margin-top: 10px;
-    /* Ajoute un espace au-dessus de la section pour éviter les chevauchements */
+    margin-top: 100px;
+    /* Ajustez cette valeur pour compenser la hauteur du header */
+    box-sizing: border-box;
+    /* Inclut le padding dans la hauteur totale */
 }
 
 .logo-image>img {
     width: 100%;
-    /* L'image prend toute la largeur de la section */
+    height: 100%;
+    object-fit: cover;
+    /* Assure que l'image couvre tout l'élément sans déformation */
+}
+
+/* Styles pour la section de collaboration */
+.collaboration {
+    display: flex;
+    flex-direction: column;
+    /* Dispose les éléments en colonne */
+    padding: 20px;
+    /* Espace autour de la section */
+    margin: 20px auto;
+    /* Centre la section avec un espacement au-dessus et en dessous */
+    max-width: 1200px;
+    /* Définir une largeur maximale pour maintenir l'espacement */
+    box-sizing: border-box;
+}
+
+.collaboration .left {
+    text-align: left;
+    /* Centre le texte et les images */
+    margin-bottom: 20px;
+    /* Espace entre les colonnes */
+}
+
+.collaboration .right {
+    display: flex;
+    align-items: center;
+    /* Aligne les éléments verticalement au centre */
+    justify-content: center;
+    /* Centre les éléments horizontalement */
+    gap: 10px;
+    /* Espace entre le texte et l'image */
+}
+
+.collaboration img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.collaboration h2 {
+    font-family: roboto;
+    color: black;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    /* Ajoute un espace entre le titre et l'image */
+}
+
+/* Styles pour la section des détails de l'événement */
+.event-details {
+    display: flex;
+    justify-content: space-between;
+    /* Espacement égal entre les colonnes */
+    padding: 20px;
+    /* Espace autour de la section */
+    margin-left: 4.5%;
+    /* Centre la section avec un espacement au-dessus et en dessous */
+    max-width: 1200px;
+    /* Définir une largeur maximale pour maintenir l'espacement */
+    box-sizing: border-box;
+    /* Inclut le padding et la bordure dans la largeur totale */
+    perspective: 1000px;
+    /* Ajoute de la perspective pour l'effet de retournement */
+}
+
+/* Styles pour chaque carte */
+.event-card {
+    position: relative;
+    width: 30%;
+    /* Largeur de chaque carte, ajustable selon vos besoins */
+    padding: 20px;
+    /* Espace interne pour les cartes */
+    border: 1px solid #ddd;
+    /* Bordure légère pour chaque carte */
+    border-radius: 10px;
+    /* Coins arrondis pour les cartes */
+    background-color: black;
+    /* Couleur de fond légère pour chaque carte */
+    box-sizing: border-box;
+    /* Inclut le padding et la bordure dans la largeur totale */
+    color: white;
+    overflow: hidden;
+    height: 300px;
+}
+
+/* Conteneur pour la carte */
+.event-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Face avant de la carte */
+.event-card-front, .event-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Face avant de la carte */
+.event-card-front {
+    background-color: black;
+    color: white;
+}
+
+/* Face arrière de la carte */
+.event-card-back {
+    background-color: black;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Effet de retournement */
+.event-card:hover .event-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Styles pour les icônes dans les cartes */
+.event-card img {
+    width: 100px;
+    /* Largeur de l'icône, ajustable selon vos besoins */
     height: auto;
     /* Conserve les proportions de l'image */
-    max-height: 100%;
-    /* Assure que l'image ne dépasse pas la hauteur de la section */
+    margin-bottom: 10px;
+    /* Espace sous l'icône */
+}
+
+/* Styles pour les titres dans les cartes */
+.event-card h3 {
+    font-family: roboto;
+    color: white;
+    margin-bottom: 5px;
+    /* Espace sous le titre */
+}
+
+/* Styles pour les descriptions dans les cartes */
+.event-card p {
+    font-family: roboto;
+    color: white;
+    margin: 0;
+    /* Supprime la marge par défaut */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .event-details {
+        flex-direction: column;
+        /* Dispose les cartes en colonne pour les écrans plus petits */
+        align-items: center;
+        /* Centre les cartes horizontalement */
+    }
+
+    .event-card {
+        width: 100%;
+        /* Ajuste la largeur des cartes pour les écrans plus petits */
+        margin-bottom: 20px;
+        /* Espace sous chaque carte */
+    }
+}
+
+/* Styles pour la nouvelle section de réservation */
+.booking-section {
+    width: 100%;
+    padding: 5px;
+    background-color: #FFF200;
+    /* Couleur de fond de la section, ajustez selon vos besoins */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    /* Centre horizontalement le contenu de la section */
+}
+
+.booking-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    /* Largeur maximale de la section */
+    box-sizing: border-box;
+}
+
+.booking-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-text h2 {
+    font-family: roboto;
+    color: black;
+    margin-left: 100px;
+    font-size: xx-large;
+
+}
+
+.booking-text p {
+    font-family: roboto;
+    color: #333;
+    margin: 0;
+    margin-left: 100px;
+    font-size: large;
+
+}
+
+.booking-link {
+    font-family: roboto;
+    color: white;
+    background-color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 100px;
+    font-size: large;
+}
+
+.booking-link:hover {
+    background-color: #333;
+}
+
+/*******************************************************************************************/
+
+/* Styles pour la section de la galerie d'images */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permet aux images de se réorganiser en colonne sur les petits écrans */
+    gap: 10px;
+    /* Espacement entre les images */
+    justify-content: space-between;
+    /* Espacement égal entre les images */
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    /* Assure que la section prend toute la largeur disponible */
+}
+
+/* Styles pour les images dans la galerie */
+.image-gallery img {
+    flex: 1 1 calc(25% - 10px);
+    /* Chaque image occupe environ 25% de la largeur moins l'espacement */
+    height: 200px;
+    /* Hauteur fixe pour les images, ajustez selon vos besoins */
     object-fit: cover;
-    /* Couvre la section tout en conservant les proportions */
+    /* Assure que les images couvrent l'espace sans déformation */
+    border-radius: 10px;
+    /* Coins arrondis pour les images */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .image-gallery img {
+        flex: 1 1 calc(50% - 10px);
+        /* Chaque image occupe environ 50% de la largeur sur les écrans plus petits */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-gallery img {
+        flex: 1 1 100%;
+        /* Chaque image occupe 100% de la largeur sur les très petits écrans */
+    }
+}
+
+/* Styles pour les images dans la galerie avec effet de zoom au survol */
+.image-gallery img {
+    flex: 1 1 calc(25% - 10px);
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    /* Ajoute une transition fluide */
+}
+
+/* Effet de zoom au survol */
+.image-gallery img:hover {
+    transform: scale(1.1);
+    /* Augmente la taille de l'image de 10% */
+}
+
+/* Styles pour la première image */
+.image-gallery img:nth-of-type(1) {
+    flex: 0 0 auto;
+    /* Maintient les dimensions initiales de l'image */
+    height: 400px;
+    /* Ajuste la hauteur en fonction de l'image */
+    width: auto;
+    /* Ajuste la largeur en fonction de l'image */
+}
+
+/* Styles pour la quatrième image */
+.image-gallery img:nth-of-type(4) {
+    flex: 0 0 auto;
+    /* Maintient les dimensions initiales de l'image */
+    height: 400px;
+    /* Ajuste la hauteur en fonction de l'image */
+    width: auto;
+    /* Ajuste la largeur en fonction de l'image */
+}
+
+/* Styles pour la section de texte */
+.text-section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    box-sizing: border-box;
+    font-family: roboto, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.text-section p {
+    margin-bottom: 20px;
+}
+
+.text-section .highlighted {
+    font-weight: bold;
+    font-size: x-large;
+    margin-top: 20px;
+}
+
+/* Styles pour la section avec les images et le texte */
+.image-text-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    box-sizing: border-box;
+    width: 100%;
+    /* Assure que la section prend toute la largeur disponible */
+}
+
+.image-link {
+    display: block;
+    width: 100px;
+    /* Ajustez la largeur selon vos besoins */
+}
+
+.left-image-link {
+    width: 200px;
+    /* Largeur accrue pour la première image */
+}
+
+
+.image-link img {
+    width: 100%;
+    height: 90px;
+    border-radius: 8px;
+    /* Coins arrondis pour les images */
+    display: block;
+    /* Assure que les images ne sont pas en ligne avec le texte */
+}
+
+.text-content {
+    flex: 1;
+    /* Permet au texte de prendre l'espace restant */
+    text-align: center;
+    /* Centre le texte */
+    padding: 0 20px;
+}
+
+.text-content p {
+    margin: 0;
+    font-family: roboto, sans-serif;
+    font-size: large;
+    color: #333;
 }
