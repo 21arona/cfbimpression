@@ -35,11 +35,11 @@
         <section class="collaboration">
             <div class="left">
                 <h2>Présenté par</h2>
-                <img src="galerie/images/presentedByCFB.png" alt="presentedByCFB Logo" />
+                <img style ="height: 300px;" src="galerie/images/Canada-First-Brick-logoset-on-light.png" alt="presentedByCFB Logo" />
             </div>
             <div class="right">
                 <h2>En collaboration avec</h2>
-                <img src="galerie/images/collabAvecBB.png" alt="BB Logo" />
+                <img style ="height: auto;"  src="galerie/images/collabAvecBB.png" alt="BB Logo" />
             </div>
         </section>
 
@@ -120,7 +120,7 @@
 
         <section class="image-text-section">
             <a href="https://brickerbuilds.com/?ref=ooNaRZ9v_Ntk5W" class="image-link left-image-link">
-                <img src="galerie/images/brickerbuilds.jpeg" alt="brickerbuilds" />
+                <img style="margin-right: 90px; height: 50px;" src="galerie/images/brickerbuilds.jpeg" alt="brickerbuilds" />
             </a>
             <div class="text-content">
                 <p style="size: large">L'exposition est commanditée par</p>
@@ -128,80 +128,83 @@
             <img src="galerie/images/zone_brix.jpg" alt="zone brix" />
         </section>
 
- <!-- Contact Section -->
- <section id="contact">
-  <div class="section-head">
-      <img src="galerie/images/logo-on-light.png" alt="Logo" />
-      <h2>Contactez-nous</h2>
-  </div>
+       <!-- Contact Section -->
+       <section id="contact">
+        <div class="section-head">
+            <img src="galerie/images/logo-on-light.png" alt="Logo" />
+            <h2 id="contactTitle">Contactez-nous</h2>
+        </div>
 
-  <div class="row">
-      <div class="eight columns" id="formContainer">
-          <!-- Formulaire -->
-          <form id="contactForm" name="contactForm">
-              <fieldset>
-                  <div>
-                      <label for="contactName">Nom <span class="required">*</span></label>
-                      <input type="text" id="contactName" name="contactName" required />
-                  </div>
+        <div class="row">
+            <div class="eight columns" id="formContainer">
+                <!-- Formulaire -->
+                <form id="contactForm" name="contactForm">
+                    <fieldset>
+                        <div>
+                            <label for="contactName">Nom <span class="required">*</span></label>
+                            <input type="text" id="contactName" name="contactName" required />
+                        </div>
 
-                  <div>
-                      <label for="contactEmail">Email <span class="required">*</span></label>
-                      <input type="email" id="contactEmail" name="contactEmail" required />
-                  </div>
+                        <div>
+                            <label for="contactEmail">Email <span class="required">*</span></label>
+                            <input type="email" id="contactEmail" name="contactEmail" required />
+                        </div>
 
-                  <div>
-                      <label for="contactSubject">Sujet</label>
-                      <input type="text" id="contactSubject" name="contactSubject" />
-                  </div>
+                        <div>
+                            <label for="contactSubject">Sujet</label>
+                            <input type="text" id="contactSubject" name="contactSubject" />
+                        </div>
 
-                  <div>
-                      <label for="contactMessage">Message <span class="required">*</span></label>
-                      <textarea id="contactMessage" name="contactMessage" required></textarea>
-                  </div>
+                        <div>
+                            <label for="contactMessage">Message <span class="required">*</span></label>
+                            <textarea id="contactMessage" name="contactMessage" required></textarea>
+                        </div>
 
-                  <div>
-                      <button class="submit" type="button" id="submitButton">Soumettre</button>
-                  </div>
-              </fieldset>
-          </form>
-          <!-- Form End -->
-          <h3 id="successMessage" style="display: none; color: aliceblue">Message bien envoyé !</h3>
-      </div>
-  </div>
-</section>
-<!-- Contact Section End -->
+                        <div>
+                            <button class="submit" type="button" id="submitButton">Soumettre</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <!-- Form End -->
+                <h3 id="successMessage" style="display: none;">Message bien envoyé !</h3>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const formContainer = document.getElementById('formContainer');
-  const contactSection = document.getElementById('contact');
-  const form = document.getElementById('contactForm');
-  const successMessage = document.getElementById('successMessage');
-  const submitButton = document.getElementById('submitButton');
+    document.addEventListener('DOMContentLoaded', function () {
+        const formContainer = document.getElementById('formContainer');
+        const contactSection = document.getElementById('contact');
+        const contactTitle = document.getElementById('contactTitle');
+        const form = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        const submitButton = document.getElementById('submitButton');
 
-  submitButton.addEventListener('click', function () {
-      const formData = new FormData(form);
-      const emailData = {
-          from_name: formData.get('contactName'),
-          from_email: formData.get('contactEmail'),
-          subject: formData.get('contactSubject'),
-          message: formData.get('contactMessage')
-      };
+        submitButton.addEventListener('click', function () {
+            const formData = new FormData(form);
+            const emailData = {
+                from_name: formData.get('contactName'),
+                from_email: formData.get('contactEmail'),
+                subject: formData.get('contactSubject'),
+                message: formData.get('contactMessage')
+            };
 
-      emailjs.send('service_stpckma', 'template_ag9spyh', emailData)
-          .then(function(response) {
-              formContainer.style.display = 'none'; // Cache le formulaire
-              successMessage.style.display = 'block'; // Affiche le message de succès
-              contactSection.querySelector('.section-head h2').style.display = 'none'; // Cache le titre "Contactez-nous"
-              alert('Message bien envoyé')
-          }, function(error) {
-              console.error('Erreur:', error);
-              alert('Une erreur est survenue. Veuillez réessayer.');
-          });
-  });
-});
+            emailjs.send('service_stpckma', 'template_ag9spyh', emailData)
+                .then(function(response) {
+                    // Cache le formulaire
+                    formContainer.style.display = 'none';
+                    // Change le titre en message de succès
+                    contactTitle.textContent = 'Message bien envoyé !';
+                    // Affiche le message de succès
+                    successMessage.style.display = 'block';
+                }, function(error) {
+                    console.error('Erreur:', error);
+                    alert('Une erreur est survenue. Veuillez réessayer.');
+                });
+        });
+    });
 </script>
 </body>
 </html>

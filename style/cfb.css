@@ -23,7 +23,7 @@ header {
     top: 0;
     width: 100%;
     /* Assure que le header prend toute la largeur */
-    background-color: #FFF200;
+    background-color: #ffcb05;
     /* Assure la visibilité du header */
     z-index: 10;
     /* Assure que le header reste au-dessus des autres éléments */
@@ -35,7 +35,7 @@ header {
 
 /* Ajuster la hauteur de l'image dans le header */
 header>img {
-    height: 90px;
+    height: 100px;
 }
 
 /* Styles de navigation */
@@ -124,7 +124,6 @@ nav>ul>li>a:hover {
 
 .collaboration img {
     max-width: 100%;
-    height: auto;
     display: block;
 }
 
@@ -261,7 +260,7 @@ nav>ul>li>a:hover {
 .booking-section {
     width: 100%;
     padding: 5px;
-    background-color: #FFF200;
+    background-color: #ffcb05;
     /* Couleur de fond de la section, ajustez selon vos besoins */
     box-sizing: border-box;
     display: flex;
@@ -433,12 +432,13 @@ nav>ul>li>a:hover {
 
 /* Styles pour les images */
 .image-text-section img {
-    max-width: 100%;
+    max-width: 50%;
     /* Empêche l'image de dépasser la largeur de son conteneur */
     height: auto;
     /* Conserve les proportions de l'image */
     border-radius: 8px;
 }
+
 
 /* Styles pour les liens d'images */
 .left-image-link, .right-image-link {
