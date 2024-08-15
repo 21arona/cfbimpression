@@ -482,13 +482,12 @@ nav>ul>li>a:hover {
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 #contact img {
     margin-right: 20px;
     height: auto;
-    max-height: 90px;
+    max-height: 130px;
     /* Ajustez si nécessaire */
 }
 
