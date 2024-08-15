@@ -181,5 +181,104 @@
         <img src="galerie/images/zone_brix.jpg" alt="zone brix" />
       </section>
     </div>
+
+    <!-- Contact Section
+   ================================================== -->
+    <section id="contact">
+      <div class="row section-head">
+        <div class="two columns header-col"></div>
+
+        <div class="ten columns">
+          <img src="galerie/images/logoemail.png" alt="email" />
+          <p class="lead">
+            Pour toute question, projet ou idée créative, n'hésitez pas à me
+            contacter via le formulaire ci-dessous. Ravie de collaborer sur des
+            projets passionnants. Merci pour votre visite et à bientôt !
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="eight columns">
+          <!-- form -->
+          <form action="" method="post" id="contactForm" name="contactForm">
+            <fieldset>
+              <div>
+                <label for="contactName"
+                  >Nom <span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  value=""
+                  size="35"
+                  id="contactName"
+                  name="contactName"
+                />
+              </div>
+
+              <div>
+                <label for="contactEmail"
+                  >Email <span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  value=""
+                  size="35"
+                  id="contactEmail"
+                  name="contactEmail"
+                />
+              </div>
+
+              <div>
+                <label for="contactSubject">Sujet</label>
+                <input
+                  type="text"
+                  value=""
+                  size="35"
+                  id="contactSubject"
+                  name="contactSubject"
+                />
+              </div>
+
+              <div>
+                <label for="contactMessage"
+                  >Message <span class="required">*</span></label
+                >
+                <textarea
+                  cols="50"
+                  rows="3"
+                  id="contactMessage"
+                  name="contactMessage"
+                ></textarea>
+              </div>
+
+              <div>
+                <button class="submit" type="button" onclick="sendMail()">
+                  Soumettre
+                </button>
+              </div>
+            </fieldset>
+          </form>
+          <!-- Form End -->
+          <h3 id="successMessage" style="display: none; color: aliceblue">
+            Message bien envoyé !
+          </h3>
+        </div>
+
+        <aside class="four columns footer-widgets">
+          <div style="color: #ebeeee" class="widget widget_contact">
+            <h2 style="color: #ebeeee">Informations</h2>
+            <p style="font-weight: 600" class="address">
+              <span>CFB IMPRESSION</span><br />
+              <span>Montreal,QC</span>
+              <br />
+              <span>Telephone : </span><br />
+              <span>Email : </span>
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+    <!-- Contact Section End-->
   </body>
 </html>
