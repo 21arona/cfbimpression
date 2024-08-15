@@ -179,37 +179,48 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const formContainer = document.getElementById('formContainer');
-        const contactSection = document.getElementById('contact');
-        const contactTitle = document.getElementById('contactTitle');
-        const form = document.getElementById('contactForm');
-        const successMessage = document.getElementById('successMessage');
-        const submitButton = document.getElementById('submitButton');
+   document.addEventListener('DOMContentLoaded', function () {
+    emailjs.init("VXrxCjioO6p93R7_9"); 
 
-        submitButton.addEventListener('click', function () {
-            const formData = new FormData(form);
-            const emailData = {
-                from_name: formData.get('contactName'),
-                from_email: formData.get('contactEmail'),
-                subject: formData.get('contactSubject'),
-                message: formData.get('contactMessage')
-            };
+    const formContainer = document.getElementById('formContainer');
+    const contactTitle = document.getElementById('contactTitle');
+    const form = document.getElementById('contactForm');
+    const contactEmail = document.getElementById('contactEmail');
+    const successMessage = document.getElementById('successMessage');
+    const submitButton = document.getElementById('submitButton');
 
-            emailjs.send('service_stpckma', 'template_ag9spyh', emailData)
-                .then(function(response) {
-                    // Cache le formulaire
-                    formContainer.style.display = 'none';
-                    // Change le titre en message de succès
-                    contactTitle.textContent = 'Message bien envoyé !';
-                    // Affiche le message de succès
-                    successMessage.style.display = 'block';
-                }, function(error) {
-                    console.error('Erreur:', error);
-                    alert('Une erreur est survenue. Veuillez réessayer.');
-                });
-        });
+    submitButton.addEventListener('click', function () {
+        // Assurez-vous que FormData est correctement utilisé
+        const formData = new FormData(form);
+
+        // Préparez les données pour EmailJS
+        const emailData = {
+            from_name: formData.get('contactName'),
+            from_email: formData.get('contactEmail'),
+            subject: formData.get('contactSubject') || '', 
+            message: formData.get('contactMessage')
+        };
+
+        // Vérifiez les données avant envoi
+        console.log('Email Data:', emailData);
+
+        // Envoyez les données à EmailJS
+        emailjs.send('service_stpckma', 'template_ag9spyh', emailData)
+            .then(function(response) {
+                console.log('Email envoyé avec succès:', response); 
+                // Cachez le formulaire
+                formContainer.style.display = 'none';
+                // Modifiez le titre en message de succès
+                contactTitle.textContent = 'Message bien envoyé !';
+                // Affichez le message de succès
+                successMessage.style.display = 'block';
+            }, function(error) {
+                console.error('Erreur lors de l\'envoi de l\'email:', error);
+                alert('Une erreur est survenue. Veuillez réessayer.');
+            });
     });
+});
+
 </script>
 
 <!-- Footer Section -->
