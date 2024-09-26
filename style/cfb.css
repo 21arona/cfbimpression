@@ -86,11 +86,11 @@ nav>ul>li>a:hover {
 }
 
 .logo-image>img {
-    width: 40%;
+    width: 50%;
     /* Prend toute la largeur */
     height: auto;
     /* Maintient les proportions de l'image */
-    max-height: 90vh;
+    max-height: 50vh;
     /* Limite la hauteur maximale pour éviter d'être trop grand */
     object-fit: contain;
     /* Garde les proportions sans recadrer */
@@ -725,5 +725,16 @@ nav>ul {
     .menu-toggle {
         display: flex;
         /* Affiche le menu burger */
+    }
+
+    .logo-image>img {
+        width: 70%;
+        /* Prend toute la largeur */
+        height: auto;
+        /* Maintient les proportions de l'image */
+        max-height: 90vh;
+        /* Limite la hauteur maximale pour éviter d'être trop grand */
+        object-fit: contain;
+        /* Garde les proportions sans recadrer */
     }
 }
