@@ -86,7 +86,7 @@ nav>ul>li>a:hover {
 }
 
 .logo-image>img {
-    width: 100%;
+    width: 40%;
     /* Prend toute la largeur */
     height: auto;
     /* Maintient les proportions de l'image */
