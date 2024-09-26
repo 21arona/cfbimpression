@@ -19,23 +19,21 @@ header {
     align-items: center;
     padding: 10px;
     position: fixed;
-    /* Fixe le header en haut de la page */
     top: 0;
     width: 100%;
-    /* Assure que le header prend toute la largeur */
     background-color: #ffcb05;
-    /* Assure la visibilité du header */
     z-index: 10;
-    /* Assure que le header reste au-dessus des autres éléments */
     box-sizing: border-box;
-    /* Inclut le padding dans la hauteur totale */
     height: 100px;
     /* Hauteur du header */
 }
 
 /* Ajuster la hauteur de l'image dans le header */
 header>img {
-    height: 100px;
+    max-height: 100%;
+    /* Utilisez max-height pour éviter la déformation */
+    height: auto;
+    /* Ajuste automatiquement la hauteur */
 }
 
 /* Styles de navigation */
@@ -55,41 +53,50 @@ nav>ul>li {
 }
 
 nav>ul>li>a {
-    font-family: roboto;
+    font-family: cursive;
     color: white;
     text-decoration: none;
     background-color: black;
-    padding: 10px;
-    border-radius: 5%;
+    padding: 3px 5px;
+    /* Ajustez le padding pour un meilleur look */
+    border-radius: 6%;
+    transition: background-color 0.3s;
+    /* Animation de transition */
 }
 
 nav>ul>li>a:hover {
     color: wheat;
-    border-bottom: 5px solid rgb(96, 76, 76);
-    background-color: black;
+    background-color: #444;
+    /* Changez la couleur de fond sur hover */
 }
 
 /* Styles pour la section logo-image */
 .logo-image {
     width: 100%;
-    height: 90vh;
-    /* Ajustez cette valeur selon vos besoins */
+    height: auto;
+    /* Permet à la section d'ajuster sa hauteur automatiquement */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    margin-top: 100px;
-    /* Ajustez cette valeur pour compenser la hauteur du header */
     box-sizing: border-box;
-    /* Inclut le padding dans la hauteur totale */
+    margin-top: 100px;
+    /* Pour compenser la hauteur du header */
+    background-color: white;
 }
 
 .logo-image>img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Assure que l'image couvre tout l'élément sans déformation */
+    /* Prend toute la largeur */
+    height: auto;
+    /* Maintient les proportions de l'image */
+    max-height: 90vh;
+    /* Limite la hauteur maximale pour éviter d'être trop grand */
+    object-fit: contain;
+    /* Garde les proportions sans recadrer */
 }
+
+
 
 /* Styles pour la section de collaboration */
 .collaboration {
@@ -259,47 +266,58 @@ nav>ul>li>a:hover {
 /* Styles pour la nouvelle section de réservation */
 .booking-section {
     width: 100%;
-    padding: 5px;
+    padding: 20px;
+    /* Un peu plus d'espace intérieur */
     background-color: #ffcb05;
-    /* Couleur de fond de la section, ajustez selon vos besoins */
+    /* Couleur de fond */
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    /* Centre horizontalement le contenu de la section */
+    /* Centre le contenu */
 }
 
+/* Contenu de réservation */
 .booking-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    /* Largeur maximale de la section */
+    /* Largeur maximale */
     box-sizing: border-box;
 }
 
+/* Styles pour le texte */
 .booking-text {
     display: flex;
     flex-direction: column;
+    flex: 1;
+    /* Permet au texte de prendre de l'espace */
+    padding-right: 20px;
+    /* Espacement à droite pour le bouton */
 }
 
+/* Styles pour le titre */
 .booking-text h2 {
     font-family: roboto;
     color: black;
-    margin-left: 100px;
-    font-size: xx-large;
-
+    margin: 0;
+    /* Supprime les marges pour éviter les déformations */
+    font-size: 2em;
+    /* Taille de police responsive */
 }
 
+/* Styles pour le paragraphe */
 .booking-text p {
     font-family: roboto;
     color: #333;
     margin: 0;
-    margin-left: 100px;
-    font-size: large;
-
+    /* Supprime les marges */
+    font-size: 1.2em;
+    /* Taille de police responsive */
 }
 
+/* Styles pour le lien de réservation */
 .booking-link {
     font-family: roboto;
     color: white;
@@ -308,13 +326,33 @@ nav>ul>li>a:hover {
     padding: 10px 20px;
     border-radius: 5px;
     display: inline-block;
-    margin-right: 100px;
-    font-size: large;
+    font-size: 1.2em;
+    /* Taille de police responsive */
 }
 
+/* Effet au survol du lien */
 .booking-link:hover {
     background-color: #333;
 }
+
+/* Styles responsive */
+@media (max-width: 768px) {
+    .booking-text h2 {
+        font-size: 1.5em;
+        /* Ajuste la taille sur petits écrans */
+    }
+
+    .booking-text p {
+        font-size: 1em;
+        /* Ajuste la taille sur petits écrans */
+    }
+
+    .booking-link {
+        font-size: 1em;
+        /* Ajuste la taille sur petits écrans */
+    }
+}
+
 
 /*******************************************************************************************/
 
@@ -420,8 +458,10 @@ nav>ul>li>a:hover {
 /* Styles pour la section avec les images et le texte */
 .image-text-section {
     display: flex;
+    flex-direction: column;
+    /* Affiche le texte en haut */
     align-items: center;
-    justify-content: space-between;
+    /* Centre le contenu horizontalement */
     padding: 20px;
     margin: 20px auto;
     max-width: 1200px;
@@ -430,36 +470,47 @@ nav>ul>li>a:hover {
     box-sizing: border-box;
 }
 
-/* Styles pour les images */
-.image-text-section img {
-    max-width: 50%;
-    /* Empêche l'image de dépasser la largeur de son conteneur */
-    height: auto;
-    /* Conserve les proportions de l'image */
-    border-radius: 8px;
-}
-
-
-/* Styles pour les liens d'images */
-.left-image-link, .right-image-link {
-    flex: 0 1 auto;
-    /* Permet à l'image de se redimensionner tout en gardant ses proportions */
-    max-width: 200px;
-    /* Largeur maximale pour l'image */
-}
-
 /* Styles pour le texte au centre */
 .text-content {
-    flex: 1;
     text-align: center;
     padding: 0 20px;
 }
 
 .text-content p {
     margin: 0;
+    margin-bottom: 20px;
     font-family: roboto, sans-serif;
     font-size: large;
     color: #333;
+    font-weight: 800;
+}
+
+/* Styles pour le conteneur des images */
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    /* Espace entre les images */
+    width: 100%;
+    /* Prend toute la largeur du conteneur */
+    max-width: 800px;
+    /* Limite la largeur des images */
+}
+
+/* Styles pour les images */
+.image-text-section img {
+    width: 60%;
+    /* Empêche l'image de dépasser 45% de la largeur du conteneur */
+    height: auto;
+    /* Conserve les proportions de l'image */
+    border-radius: 8px;
+}
+
+/* Styles pour les liens d'images */
+.left-image-link {
+    flex: 0 1 auto;
+    /* Permet à l'image de se redimensionner tout en gardant ses proportions */
+    max-width: 200px;
+    /* Largeur maximale pour l'image */
 }
 
 
@@ -571,43 +622,108 @@ nav>ul>li>a:hover {
 
 /* Styles pour le Footer */
 footer {
-    /* Couleur de fond du footer */
-    padding: 20px;
-    /* Espace intérieur autour du contenu du footer */
+    padding: 10px 20px;
+    /* Espace intérieur réduit */
     text-align: center;
-    /* Centre le texte et les éléments à l'intérieur du footer */
     box-sizing: border-box;
-    /* Inclut le padding dans la largeur totale */
-
-    height: 450px;
+    background-color: black;
+    /* Couleur de fond */
 }
 
+/* Couleur du titre */
 .footer-content h2 {
     font-family: roboto;
-    color: black;
-    /* Couleur du titre */
+    color: white;
+    /* Couleur du texte */
     margin-bottom: 10px;
     /* Espace sous le titre */
 }
 
+/* Conteneur de la carte */
 .map-container {
-    max-width: 100%;
-    /* Assure que la carte prend toute la largeur disponible */
+    width: 100%;
+    /* Prend toute la largeur */
+    max-width: 600px;
+    /* Limite la largeur de la carte */
+    height: 200px;
+    /* Hauteur fixe */
     margin: 0 auto;
-    /* Centre la carte horizontalement */
+    /* Centre la carte */
 }
 
+/* Styles pour l'iframe */
 .map-container iframe {
+    width: 100%;
+    /* Prend toute la largeur du conteneur */
+    height: 100%;
+    /* Prend toute la hauteur du conteneur */
     border: none;
     /* Supprime la bordure autour de la carte */
     border-radius: 10px;
-    /* Ajoute des coins arrondis à l'iframe */
+    /* Coins arrondis */
 }
 
 /* Responsive Design pour le Footer */
 @media (max-width: 768px) {
-    .map-container iframe {
-        height: 300px;
-        /* Réduit la hauteur de la carte pour les écrans plus petits */
+    .map-container {
+        height: 150px;
+        /* Ajuste la hauteur pour les petits écrans */
+    }
+}
+
+
+/*Menu burger*/
+/* Styles généraux pour le menu burger */
+.menu-toggle {
+    display: none;
+    /* Masqué par défaut */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 4px;
+    width: 25px;
+    background-color: black;
+    margin: 1.5px 0;
+    transition: 0.3s;
+}
+
+/* Styles de navigation */
+nav>ul {
+    display: flex;
+    /* Affiche le menu horizontalement */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* Styles pour la version mobile */
+@media screen and (max-width: 455px) {
+    nav>ul {
+        display: none;
+        /* Masque le menu par défaut */
+        flex-direction: column;
+        /* Affiche le menu verticalement */
+        width: 100%;
+        /* Prend toute la largeur */
+        background-color: #ffcb05;
+        /* Fond du menu */
+        position: absolute;
+        top: 100%;
+        /* Juste en dessous du header */
+        left: 0;
+        z-index: 1;
+        /* Assure qu'il est au-dessus des autres éléments */
+    }
+
+    nav.active>ul {
+        display: flex;
+        /* Affiche le menu lorsque le bouton est actif */
+    }
+
+    .menu-toggle {
+        display: flex;
+        /* Affiche le menu burger */
     }
 }
